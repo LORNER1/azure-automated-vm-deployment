@@ -4,8 +4,8 @@
 set -e 
 
 # Variables
-RESOURCE_GROUP="my-auto-rg"
-LOCATION="eastus"
+RESOURCE_GROUP="my-auto-rg-poland"
+LOCATION="polandcentral"
 VNET_NAME="my-vnet"
 SUBNET_NAME="my-subnet"
 VM_NAME="my-auto-vm"
@@ -27,12 +27,6 @@ az network vnet create \
 
 # 3. Create a basic Virtual Machine
 echo "Creating Virtual Machine: $VM_NAME..."
-az vm create \
-  --resource-group $RESOURCE_GROUP \
-  --name $VM_NAME \
-  --image $IMAGE \
-  --subnet $SUBNET_NAME \
-  --admin-username $ADMIN_USER \
-  --generate-ssh-keys
+az vm create --resource-group $RESOURCE_GROUP --name $VM_NAME --image $IMAGE --vnet-name $VNET_NAME --subnet $SUBNET_NAME --admin-username $ADMIN_USER --generate-ssh-keys --size Standard_B2ts_v2
 
 echo "Deployment successful!"
