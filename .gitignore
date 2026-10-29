@@ -1,0 +1,13 @@
+# Azure / Cloud credentials
+.azure/
+*.env
+
+# SSH Keys
+*.pem
+id_rsa
+id_rsa.pub
+*.key
+
+# Logs and OS files
+*.log
+.DS_Store
